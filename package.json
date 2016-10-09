@@ -1,16 +1,27 @@
 {
   "name": "react-component-boilerplate",
   "description": "A boilerplate to create React components using react-transform-hmr, Babel 6, webpack and SASS",
-  "main": "components/index.js",
+  "main": "dist/index.js",
+  "jsnext:main": "components/index.js",
+  "module": "components/index.js",
+  "files": [
+    "src",
+    "dist",
+    "README"
+  ],
   "scripts": {
     "lint": "eslint components/** tests/**",
     "lintfix": "eslint --fix components/** tests/**",
-    "prepublish": "npm run lint",
+    "prepublish": "npm run lint && npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "storybook": "start-storybook -p 9002",
     "test": "mocha --require tests/config/setup 'tests/**/*.test.js'",
     "test:watch": "mocha --require tests/config/setup 'tests/**/*.test.js' --watch",
-    "test:cover": "istanbul cover -x *.test.js _mocha -- -R spec --require tests/config/setup 'tests/**/*.test.js'"
+    "test:cover": "istanbul cover -x *.test.js _mocha -- -R spec --require tests/config/setup 'tests/**/*.test.js'",
+    "test:report": "cat ./coverage/lcov.info | codecov && rm -rf ./coverage",
+    "build": "babel components --out-dir dist",
+    "docs": "build-storybook -o docs",
+    "commit": "git cz"
   },
   "repository": {
     "type": "git",
@@ -54,8 +65,10 @@
     "istanbul": "^1.1.0-alpha.1",
     "jsdom": "^9.6.0",
     "mocha": "^3.1.0",
+    "node-sass": "^3.10.1",
     "react-addons-test-utils": "^15.3.2",
     "rimraf": "^2.5.4",
+    "sass-loader": "^4.0.2",
     "semantic-release": "^4.3.5",
     "sinon": "^1.17.6"
   },
