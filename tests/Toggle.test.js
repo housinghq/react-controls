@@ -97,7 +97,7 @@ describe('Toggle Component', () => {
       />
     )
 
-    expect(wrapper.find('i.icon-check-box-outline-blank')).to.have.length(1)
+    expect(wrapper.find('i.fa-square-o')).to.have.length(1)
 
     wrapper.simulate('click')
 
@@ -115,7 +115,7 @@ describe('Toggle Component', () => {
       />
     )
 
-    expect(wrapper.find('i.icon-radio-button-unchecked')).to.have.length(1)
+    expect(wrapper.find('i.fa-circle-o')).to.have.length(1)
 
     wrapper.simulate('click')
 
