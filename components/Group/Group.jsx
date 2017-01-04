@@ -47,7 +47,7 @@ export default class Group extends Component {
   }
 
   getElements () {
-    const { type, mode } = this.props
+    const { type, mode, disabled, labelPosition } = this.props
     return this.formattedValue.map((val, i) => (
       <Toggle
         {...val}
@@ -57,6 +57,8 @@ export default class Group extends Component {
         onChange={this.handleChange}
         type={type}
         value={val.value}
+        disabled={disabled}
+        labelPosition={labelPosition}
       />
     ))
   }
@@ -110,9 +112,15 @@ Group.propTypes = {
     })
   ),
   selectedIds: PropTypes.array,
-  id: PropTypes.string
+  id: PropTypes.string,
+  labelPosition: PropTypes.oneOf([
+    'before', 'after'
+  ]),
+  disabled: PropTypes.bool
 }
 
 Group.defaultProps = {
-  id: 'id'
+  id: 'id',
+  disabled: false,
+  labelPosition: 'before'
 }

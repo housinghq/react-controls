@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import shallowCompare from 'react-addons-shallow-compare'
 import classNames from 'classnames'
 import autoBind from '../utils/autoBind'
 import noop from '../utils/noop'
@@ -50,10 +51,7 @@ export default class Toggle extends React.Component {
   }
 
   shouldComponentUpdate (nextProps) {
-    return (
-      (nextProps.value !== this.props.value) ||
-      (nextProps.count !== this.props.count)
-    )
+    return shallowCompare(this, nextProps)
   }
 
   getIconElement () {

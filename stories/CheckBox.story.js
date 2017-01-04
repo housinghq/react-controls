@@ -5,18 +5,38 @@ import Container from './Container'
 
 storiesOf('Checkbox Button', module)
   .addDecorator((story) => <Container action={action} value={false}>{story()}</Container>)
-  .add('with a text', () => (
+  .add('Default', () => (
     <Toggle
       name='basic'
       type='checkbox'
+      label={'I am label'}
     />
   ))
-  .add('with no text', () => (
+  .add('Disabled', () => (
     <Toggle
-      name='no-text'
+      name='story1'
       label='hello'
-      count={6}
       disabled
+      count={6}
       type='checkbox'
+    />
+  ))
+  .add('Tag', () => (
+    <Toggle
+      name={'tag'}
+      label={'hello'}
+      count={6}
+      mode={'tag'}
+      type={'checkbox'}
+    />
+  ))
+  .add('Tag Disabled', () => (
+    <Toggle
+      name={'tag'}
+      label={'hello'}
+      count={6}
+      mode={'tag'}
+      type={'checkbox'}
+      disabled
     />
   ))

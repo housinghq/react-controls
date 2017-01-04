@@ -141,38 +141,6 @@ describe('Toggle Component', () => {
     expect(wrapper.find('.toggle-icon-label').text()).to.equal('on')
   })
 
-  it('should not call render if both updated value and count are same', () => {
-    const onChange = function () {
-    }
-
-    const render = sinon.spy(Toggle.prototype, 'render')
-
-    const wrapper = shallow(
-      <Toggle
-        name='render'
-        label='hello'
-        value
-        onChange={onChange}
-        count={5}
-      />
-    )
-
-    expect(render.calledOnce).to.equal(true)
-    wrapper.setProps({
-      value: true,
-      count: 5
-    })
-
-    expect(render.calledTwice).to.equal(false)
-
-    wrapper.setProps({
-      value: true,
-      count: 6
-    })
-
-    expect(render.calledTwice).to.equal(true)
-  })
-
   it('should render the icon element if passed', () => {
     const onChange = noop
 

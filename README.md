@@ -1,43 +1,129 @@
-#react-component-boilerplate
+`Toggle` (component)
+====================
 
-> A boilerplate to create React components using react-transform-hmr, Babel 6, webpack and SASS
+Hello world
 
-##Features
+Props
+-----
 
-1. [Babel 6](http://babeljs.io/) for ES6 and ES7
-1. [style-loader](https://github.com/webpack/style-loader), [sass-loader](https://github.com/jtangelder/sass-loader) and [less-loader](https://github.com/webpack/less-loader) to allow import of stylesheets in plain css, sass and less,
-1. [mocha](https://mochajs.org/) to allow writing unit tests for the project
-1. [react-storybook](https://github.com/kadirahq/react-storybook)
-1. [enzyme](http://airbnb.io/enzyme/index.html) for testing
-1. [travis](https://travis-ci.org/) as CI
-1. [istanbul](https://github.com/gotwarlost/istanbul) for code coverage (ES2015)
-1. [codecov.io](https://codecov.io) for code-coverage reporting
-1. Scripts written for building components(ES5)
-1. [semantic-release](https://github.com/semantic-release/semantic-release) for automated releases following semantic versioning
-1. [commitizen](https://github.com/commitizen/cz-cli) and [cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog) for better commit messages.
+prop name | isRequired | type
+-------|------|------
+[attributes](#attributes)| |`object`
+[className](#classname)| |`string`
+[count](#count)| |`number`
+[countElem](#countelem)| |`union(func|element)`
+[disabled](#disabled)| |`bool`
+[iconElement](#iconelement)| |`func`
+[iconLabel](#iconlabel)| |`array`
+[label](#label)| |`string`
+[labelPosition](#labelposition)| |`enum('before'|'after')`
+[mode](#mode)| |`enum('normal'|'tag')`
+[name](#name)|✔️|`string`
+[onChange](#onchange)| |`func`
+[type](#type)| |`enum('switch'|'radio'|'checkbox')`
+[value](#value)|✔️|`bool`
+### `attributes`
+type: `object`
 
+Sometimes you may need to add some custom attributes to the root tag of the
+component. attributes will accept an object where the key and values will
+be those attributes and their value respectively.
 
-## Getting started
+Eg : If you pass
+```js
+attributes = {
+ 'data-attr1' : 'val1',
+ 'data-attr2' : 'val2'
+}
 ```
-cd react-component-boilerplate/
-npm install
-npm run storybook
+the root tag will have the attributes `data-attr1` and `data-attr2` with the
+corresponding values as `val1` and `val2` respectively
+
+
+
+### `className`
+type: `string`
+
+Optional className to be added to the root tag of the component
+
+
+
+### `count`
+type: `number`
+
+In case you want to show aggregation/count in front of label then pass the
+number in this option. This is generally useful for showing the items present
+corresponding to that filter option.
+
+
+
+### `countElem`
+type: `union(func|element)`
+
+defaultValue:
+```js
+function(p) {
+  return <span className='toggle-count'>({p.count})</span>;
+}
 ```
 
-### Scripts
 
-1. `npm run lint` : Lint all js files
-1. `npm run lintfix` : fix linting errors of all js files
-1. `npm run semantic-release` : make a release. Leave it for CI to do.
-1. `npm run storybook`: Start developing by using storybook
-1. `npm run test` : Run tests. tests file should be written as `*.test.js` and using ES2015
-1. `npm run test:watch` : Watch tests while writing
-1. `npm run test:cover` : Show coverage report of your tests
-1. `npm run test:report` : Report test coverage to codecov.io. Leave this for CI
-1. `npm run build`: transpile all ES6 component files into ES5(commonjs) and put it in `dist` directory
-1. `npm run docs`: create static build of storybook in `docs` directory that can be used for github pages
+### `disabled`
+type: `bool`
+defaultValue: `false`
 
-Learn how to write stories [here](https://getstorybook.io/docs/basics/writing-stories)
+Set to `true` if you want to disable the component interactions.
 
-### License
-MIT
+
+
+### `iconElement`
+type: `func`
+
+
+
+### `iconLabel`
+type: `array`
+
+
+
+### `label`
+type: `string`
+
+The label text present in the component. If this option is not set only the
+icon element will render.
+
+
+
+### `labelPosition`
+type: `enum('before'|'after')`
+defaultValue: `'before'`
+
+
+
+### `mode`
+type: `enum('normal'|'tag')`
+defaultValue: `'normal'`
+
+
+
+### `name` (required)
+type: `string`
+
+
+
+### `onChange`
+type: `func`
+defaultValue: `noop`
+
+
+
+### `type`
+type: `enum('switch'|'radio'|'checkbox')`
+defaultValue: `'switch'`
+
+
+
+### `value` (required)
+type: `bool`
+defaultValue: `false`
+
