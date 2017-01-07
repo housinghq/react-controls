@@ -1,7 +1,9 @@
 # react-controls
 > A set of components like checkboxes, switches and radio buttons used at Housing.com
 
-![](demo.gif)
+Normal|Tag
+------|-----
+![](demo.gif)| ![](tag.gif)
 
 ## &lt;Toggle/&gt;
 
