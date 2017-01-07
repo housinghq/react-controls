@@ -13,7 +13,6 @@
     "lint": "eslint components/**/*.jsx tests/** stories/**",
     "lintfix": "eslint --fix components/**/*.jsx tests/** stories/**",
     "prepublish": "npm run lint && npm run build",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "storybook": "start-storybook -p 9002",
     "test": "mocha --require tests/config/setup 'tests/**/*.test.js'",
     "test:watch": "mocha --require tests/config/setup 'tests/**/*.test.js' --watch",
