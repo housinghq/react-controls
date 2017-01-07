@@ -1,6 +1,6 @@
 {
-  "name": "react-component-boilerplate",
-  "description": "A boilerplate to create React components using react-transform-hmr, Babel 6, webpack and SASS",
+  "name": "react-controls",
+  "description": "A collection of Checkbox, Radio and Switch written in React.",
   "main": "dist/index.js",
   "jsnext:main": "components/index.js",
   "module": "components/index.js",
@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ritz078/react-component-boilerplate.git"
+    "url": "https://github.com/filter-components/react-controls.git"
   },
   "keywords": [
     "react-component-keywords"
@@ -33,9 +33,9 @@
   "author": "Ritesh Kumar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ritz078/react-component-boilerplate/issues"
+    "url": "https://github.com/filter-components/react-controls/issues"
   },
-  "homepage": "https://github.com/ritz078/react-component-boilerplate",
+  "homepage": "https://github.com/filter-components/react-controls",
   "devDependencies": {
     "@kadira/storybook": "^2.35.1",
     "@kadira/storybook-addon-knobs": "^1.7.0",
