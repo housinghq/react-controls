@@ -1,4 +1,11 @@
 # react-controls
+
+
+[![codecov](https://codecov.io/gh/filter-components/react-controls/branch/master/graph/badge.svg)](https://codecov.io/gh/filter-components/react-controls)
+[![Build Status](https://travis-ci.org/filter-components/react-controls.svg?branch=master)](https://travis-ci.org/filter-components/react-controls)
+[![npm](https://img.shields.io/npm/v/react-controls.svg?maxAge=2592000)](https://github.com/filter-components/react-controls)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/filter-components/react-controls/master/LICENSE.md)
+
 > A set of components like checkboxes, switches and radio buttons used at Housing.com
 
 Normal|Tag
