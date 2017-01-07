@@ -47,7 +47,7 @@ export default class Group extends Component {
   }
 
   getElements () {
-    const { type, mode, disabled, labelPosition } = this.props
+    const { type, mode, disabled } = this.props
     return this.formattedValue.map((val, i) => (
       <Toggle
         {...val}
@@ -58,7 +58,6 @@ export default class Group extends Component {
         type={type}
         value={val.value}
         disabled={disabled}
-        labelPosition={labelPosition}
       />
     ))
   }
@@ -106,21 +105,21 @@ Group.propTypes = {
   ]),
   value: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
       count: PropTypes.number,
       label: PropTypes.string,
       value: PropTypes.bool
     })
   ),
-  selectedIds: PropTypes.array,
-  id: PropTypes.string,
-  labelPosition: PropTypes.oneOf([
-    'before', 'after'
+  selectedIds: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.number
   ]),
+  id: PropTypes.string,
   disabled: PropTypes.bool
 }
 
 Group.defaultProps = {
   id: 'id',
-  disabled: false,
-  labelPosition: 'before'
+  disabled: false
 }

@@ -39,9 +39,6 @@ function switchElement (prop) {
   )
 }
 
-/**
- * Hello world
- */
 export default class Toggle extends React.Component {
   constructor (props) {
     super(props)
@@ -79,7 +76,6 @@ export default class Toggle extends React.Component {
       className,
       name,
       label,
-      labelPosition,
       value,
       disabled,
       countElem,
@@ -93,11 +89,6 @@ export default class Toggle extends React.Component {
       'toggle-tag': !this.isNormal()
     })
 
-    const labelClass = classNames('toggle-label', {
-      'toggle-before': labelPosition === 'before',
-      'toggle-after': labelPosition === 'after'
-    })
-
     return (
       <div
         {...attributes}
@@ -105,7 +96,7 @@ export default class Toggle extends React.Component {
         onClick={!disabled && this.handleClick}
       >
         {
-          label && <div className={labelClass}>
+          label && <div className='toggle-label'>
             {label}
             {count !== undefined && countElem(this.props)}
           </div>
@@ -117,50 +108,16 @@ export default class Toggle extends React.Component {
 }
 
 Toggle.propTypes = {
-  /**
-   * Sometimes you may need to add some custom attributes to the root tag of the
-   * component. attributes will accept an object where the key and values will
-   * be those attributes and their value respectively.
-   *
-   * Eg : If you pass
-   * ```js
-   * attributes = {
-   *  'data-attr1' : 'val1',
-   *  'data-attr2' : 'val2'
-   * }
-   * ```
-   * the root tag will have the attributes `data-attr1` and `data-attr2` with the
-   * corresponding values as `val1` and `val2` respectively
-   */
   attributes: PropTypes.object,
-
-  /**
-   * Optional className to be added to the root tag of the component
-   */
   className: PropTypes.string,
-
-  /**
-   * In case you want to show aggregation/count in front of label then pass the
-   * number in this option. This is generally useful for showing the items present
-   * corresponding to that filter option.
-   */
   count: PropTypes.number,
   countElem: PropTypes.oneOfType([
     PropTypes.func,
     PropTypes.element
   ]),
-
-  /**
-   * Set to `true` if you want to disable the component interactions.
-   */
   disabled: PropTypes.bool,
   iconElement: PropTypes.func,
   iconLabel: PropTypes.array,
-
-  /**
-   * The label text present in the component. If this option is not set only the
-   * icon element will render.
-   */
   label: PropTypes.string,
   labelPosition: PropTypes.oneOf([
     'before', 'after'
@@ -179,7 +136,6 @@ Toggle.defaultProps = {
     return <span className='toggle-count'>({p.count})</span>
   },
   disabled: false,
-  labelPosition: 'before',
   mode: 'normal',
   onChange: noop,
   type: 'switch',

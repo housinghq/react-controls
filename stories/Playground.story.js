@@ -33,7 +33,6 @@ storiesOf('Playground', module)
         count={number('Count', 6)}
         disabled={boolean('Disabled', false)}
         iconLabel={text('icon Label', '')}
-        labelPosition={select('label position', ['before', 'after'], 'before')}
         mode={select('Mode', ['normal', 'tag'], 'normal')}
         value={boolean('Value', false)}
       />
@@ -46,7 +45,6 @@ storiesOf('Playground', module)
         name={text('Name', 'basic')}
         className={text('Classname', 'group')}
         type={select('Type', ['radio', 'checkbox', 'switch'], 'radio')}
-        labelPosition={select('label position', ['before', 'after'], 'before')}
         disabled={boolean('disabled', false)}
         mode={select('Mode', ['normal', 'tag'], 'normal')}
         value={valueKnob}
