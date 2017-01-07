@@ -1,5 +1,6 @@
 {
   "name": "react-controls",
+  "version": "0.1.0",
   "description": "A collection of Checkbox, Radio and Switch written in React.",
   "main": "dist/index.js",
   "jsnext:main": "components/index.js",
