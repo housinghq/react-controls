@@ -13,12 +13,16 @@ Normal Mode|Tag Mode
 ------|-----
 ![](demo.gif)| ![](tag.gif)
 
-## &lt;Toggle/&gt;
-
 ### Installation
 ```
 npm install --save react-controls
 ```
+
+This package consists of 2 components:
+- [Toggle](#toggle)
+- [Group](#group)
+
+## &lt;Toggle/&gt;
 
 ### Basic Usage
 
