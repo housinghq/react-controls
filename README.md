@@ -9,11 +9,16 @@
 
 > A set of components like checkboxes, switches and radio buttons used at Housing.com
 
-Normal|Tag
+Normal Mode|Tag Mode
 ------|-----
 ![](demo.gif)| ![](tag.gif)
 
 ## &lt;Toggle/&gt;
+
+### Installation
+```
+npm install --save react-controls
+```
 
 ### Basic Usage
 
