@@ -1,0 +1,25 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import "../components/styles";
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.group {
+  width: 200px;
+}
+
+.rf-toggle {
+  display: table;
+  margin: 120px auto;
+  position: relative;
+}
+
+.rf-group {
+  margin: 120px auto;
+  .rf-toggle{
+    display: inline-block;
+    margin: 5px auto;
+  }
+}
+

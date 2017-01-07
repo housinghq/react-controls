@@ -10,8 +10,8 @@
     "README"
   ],
   "scripts": {
-    "lint": "eslint components/** tests/**",
-    "lintfix": "eslint --fix components/** tests/**",
+    "lint": "eslint components/**/*.jsx tests/** stories/**",
+    "lintfix": "eslint --fix components/**/*.jsx tests/** stories/**",
     "prepublish": "npm run lint && npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "storybook": "start-storybook -p 9002",
@@ -37,8 +37,7 @@
   },
   "homepage": "https://github.com/ritz078/react-component-boilerplate",
   "devDependencies": {
-    "@kadira/storybook": "^2.32.1",
-    "@kadira/storybook-addon-actions": "^1.1.1",
+    "@kadira/storybook": "^2.35.1",
     "@kadira/storybook-addon-knobs": "^1.7.0",
     "@kadira/storybook-addon-options": "^1.0.1",
     "autoprefixer": "^6.5.3",
@@ -75,8 +74,10 @@
   "dependencies": {
     "@kadira/storybook-deployer": "^1.0.0",
     "classnames": "^2.2.3",
+    "deep-copy": "^1.2.0",
     "invariant": "^2.0.0",
     "react": "^15.4.1",
+    "react-addons-shallow-compare": "^15.4.1",
     "react-dom": "^15.4.1"
   },
   "config": {

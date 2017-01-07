@@ -1,43 +1,133 @@
-#react-component-boilerplate
-
-> A boilerplate to create React components using react-transform-hmr, Babel 6, webpack and SASS
-
-##Features
-
-1. [Babel 6](http://babeljs.io/) for ES6 and ES7
-1. [style-loader](https://github.com/webpack/style-loader), [sass-loader](https://github.com/jtangelder/sass-loader) and [less-loader](https://github.com/webpack/less-loader) to allow import of stylesheets in plain css, sass and less,
-1. [mocha](https://mochajs.org/) to allow writing unit tests for the project
-1. [react-storybook](https://github.com/kadirahq/react-storybook)
-1. [enzyme](http://airbnb.io/enzyme/index.html) for testing
-1. [travis](https://travis-ci.org/) as CI
-1. [istanbul](https://github.com/gotwarlost/istanbul) for code coverage (ES2015)
-1. [codecov.io](https://codecov.io) for code-coverage reporting
-1. Scripts written for building components(ES5)
-1. [semantic-release](https://github.com/semantic-release/semantic-release) for automated releases following semantic versioning
-1. [commitizen](https://github.com/commitizen/cz-cli) and [cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog) for better commit messages.
+# react-controls
 
 
-## Getting started
+[![codecov](https://codecov.io/gh/filter-components/react-controls/branch/master/graph/badge.svg)](https://codecov.io/gh/filter-components/react-controls)
+[![Build Status](https://travis-ci.org/filter-components/react-controls.svg?branch=master)](https://travis-ci.org/filter-components/react-controls)
+[![npm](https://img.shields.io/npm/v/react-controls.svg?maxAge=2592000)](https://github.com/filter-components/react-controls)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/filter-components/react-controls/master/LICENSE.md)
+
+> A set of components like checkboxes, switches and radio buttons used at Housing.com
+
+Normal|Tag
+------|-----
+![](demo.gif)| ![](tag.gif)
+
+## &lt;Toggle/&gt;
+
+### Basic Usage
+
+```js
+import {Toggle} from 'react-controls';
+
+export default class X extends React.Component{
+ render() {
+    <Toggle
+      name='story1'
+      label='hello'
+      disabled
+      count={6}
+      type='radio'
+      value={true}
+    />
+   }
+}
 ```
-cd react-component-boilerplate/
-npm install
-npm run storybook
+
+### Props
+
+prop name | defaultValue | type
+-------|------|------
+attributes| {} |Sometimes you may need to add some custom attributes to the root tag of the component. attributes will accept an object where the key and values will be those attributes and their value respectively. Eg : If you pass `attributes = {'data-attr1' : 'val1','data-attr2' : 'val2'}`the root tag will have the attributes `data-attr1` and `data-attr2` with the corresponding values as `val1` and `val2` respectively
+className| '' |Optional className to be added to the root tag of the component
+count| null |In case you want to show aggregation/count in front of label then pass the number in this option. This is generally useful for showing the items present corresponding to that filter option.
+countElem| [function](#countelem) | Return the element that you want to be rendered in place of count.
+disabled| false |To disable or not to disable
+iconElement| |`func`
+iconLabel| ['on', 'off'] |the text to be shown in the switch button in on and off states.
+label| '' |The text label for that component
+mode| 'normal' |There are two modes here, 'normal' and 'tag'. 'tag' mode can be use for mobile devices where you need experience like [this](tag.gif).
+name|''|name of the component
+onChange| ({name, value}) | function triggered when the component is clicked
+type| 'switch' |The component can be change to have the behaviour of 'switch', 'radio' or 'checkbox'.
+value| false ️|[Required] `true` or `false`
+
+
+
+#### `countElem`
+type: `union(func|element)`
+
+defaultValue:
+```js
+function(props) {
+  return <span className='toggle-count'>({props.count})</span>;
+}
 ```
 
-### Scripts
 
-1. `npm run lint` : Lint all js files
-1. `npm run lintfix` : fix linting errors of all js files
-1. `npm run semantic-release` : make a release. Leave it for CI to do.
-1. `npm run storybook`: Start developing by using storybook
-1. `npm run test` : Run tests. tests file should be written as `*.test.js` and using ES2015
-1. `npm run test:watch` : Watch tests while writing
-1. `npm run test:cover` : Show coverage report of your tests
-1. `npm run test:report` : Report test coverage to codecov.io. Leave this for CI
-1. `npm run build`: transpile all ES6 component files into ES5(commonjs) and put it in `dist` directory
-1. `npm run docs`: create static build of storybook in `docs` directory that can be used for github pages
+#### `iconElement`
+type: `func`
 
-Learn how to write stories [here](https://getstorybook.io/docs/basics/writing-stories)
+defaultValue:
+```js
+function(props) {
+    return <i></i>
+}
+```
 
-### License
-MIT
+## &lt;Group/&gt;
+
+### Basic Usage
+
+```js
+import {Group} from 'react-controls';
+
+ const value = [{
+   id: 1,
+   label: 'a',
+   count: 6
+ }, {
+   id: 2,
+   label: 'b'
+ }, {
+   id: 3,
+   label: 'c'
+ }]
+
+export default class X extends React.Component{
+ render() {
+     return(
+        <Group
+          name='group'
+          type='switch'
+          value={value}
+        />
+        )
+       }
+}
+```
+
+### Props
+
+prop name | defaultValue | type
+-------|------|------
+attributes| {} |Sometimes you may need to add some custom attributes to the root tag of the component. attributes will accept an object where the key and values will be those attributes and their value respectively. Eg : If you pass `attributes = {'data-attr1' : 'val1','data-attr2' : 'val2'}`the root tag will have the attributes `data-attr1` and `data-attr2` with the corresponding values as `val1` and `val2` respectively
+className| '' |Optional className to be added to the root tag of the component
+mode| 'normal' |There are two modes here, 'normal' and 'tag'. 'tag' mode can be use for mobile devices where you need experience like [this]().
+onChange| ({name, value}) | function triggered when the component is clicked.
+type| 'switch' |The component can be change to have the behaviour of 'switch', 'radio' or 'checkbox'.
+value| {} ️|[Required] An array of the form `[{id: 1,label: 'x', value: true, count: 4}, {id:2, label: 'y', value: true, count:7}]` .
+selectedIds| `[]` or `null`| An array of selected ids for checkbox or switch and a single id for 'radio' type.
+id| 'id' | The key name of the primary key.
+disabled| `false` | Set to true to disable the whole group.
+
+## Development
+1. Clone the repo
+1. Create a new branch.
+1. Run `npm install && npm run storybook`
+1. You can find the server running at **localhost:9002**
+1. Add feature or fix bug. Add tests if required.
+1. if commit fails make sure that there's no linting error or failed test by running `npm run test && npm run lint`
+
+
+## License
+MIT @ Ritesh Kumar

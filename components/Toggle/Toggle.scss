@@ -1,0 +1,114 @@
+@import "../theme";
+@import "../mixins";
+
+$toggleContainerWidth: 200px !default;
+
+.rf-toggle {
+  display: inline-block;
+  i {
+    color: $tertiary-color;
+    transition: all .3s ease-out;
+  }
+  &.toggle-active i {
+    color: $primary-color;
+  }
+  &.toggle-tag.toggle-disabled {
+    background-color: $secondary-color;
+    border: darken($secondary-color, 35%);
+  }
+}
+
+.toggle-wrapper {
+  background-color: darken($secondary-color, 30%);
+  width: $toggle-width;
+  height: $toggle-height;
+  border-radius: $toggle-height/2;
+  padding: $toggle-padding;
+  display: inline-block;
+  position: relative;
+  transition: all .3s ease-out;
+  box-sizing: border-box;
+  .toggle-active & {
+    background-color: $primary-color;
+  }
+  .toggle-disabled & {
+    background-color: grey;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.toggle-tag {
+  border: 1px solid $primary-color;
+  border-radius: $toggle-height;
+  cursor: pointer;
+  &:hover {
+    background-color: $secondary-color;
+  }
+  &.toggle-active {
+    background-color: $primary-color;
+    &:hover {
+      background-color: darken($primary-color, 5%);
+    }
+    .toggle-count, .toggle-label {
+      color: #ffffff;
+    }
+  }
+}
+
+.toggle-btn {
+  height: $toggle-height - ($toggle-padding * 2);
+  width: $toggle-height - ($toggle-padding * 2);
+  position: absolute;
+  background-color: $toggle-btn-color;
+  border-radius: 50%;
+  cursor: pointer;
+  left: $toggle-padding;
+  display: inline-block;
+  transition: all .3s ease-out;
+  transform: translate3d(0, 0, 0);
+  .toggle-active & {
+    left: 100%;
+    margin-left: -($toggle-height - $toggle-padding);
+  }
+}
+
+.toggle-label {
+  display: inline-block;
+  vertical-align: top;
+  width: $toggleContainerWidth - $toggle-width;
+  @include no-select();
+  .after {
+    float: right;
+  }
+  .toggle-tag & {
+    text-align: center;
+    padding: 6px 0;
+    line-height: 20px;
+  }
+}
+
+.toggle-count {
+  color: $toggle-count-color;
+  margin-left: 5px;
+}
+
+.toggle-icon-label {
+  font-size: $toggle-label-font-size;
+  line-height: $toggle-label-line-height;
+  width: $toggle-width - ($toggle-height + 2 * $toggle-padding);
+  text-align: center;
+  color: white;
+  &.toggle-il-right {
+    float: right;
+    padding-right: $toggle-padding;
+  }
+  &.toggle-il-left {
+    float: left;
+    padding-left: $toggle-padding;
+  }
+}
+
+
+
+
